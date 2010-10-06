@@ -1,0 +1,41 @@
+<launch4jConfig>
+  <dontWrapJar>true</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>.\jar\encog-workbench.jar</jar>
+  <outfile>c:\workbench\EncogWorkbench.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir></chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <customProcName>false</customProcName>
+  <stayAlive>false</stayAlive>
+  <manifest></manifest>
+  <icon>C:\encog-build\encog.ico</icon>
+  <classPath>
+    <mainClass>org.encog.workbench.EncogWorkBench</mainClass>
+    <cp>.\jar\encog-core.jar</cp>
+    <cp>.\jar\encog-workbench.jar</cp>
+    <cp>.\jar\jfreechart-1.0.11.jar</cp>
+    <cp>.\jar\jcommon-1.0.14.jar</cp>
+  </classPath>
+  <jre>
+    <path></path>
+    <minVersion>1.5.0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+  </jre>
+  <versionInfo>
+    <fileVersion>1.0.0.0</fileVersion>
+    <txtFileVersion>1.0</txtFileVersion>
+    <fileDescription>Encog Workbench</fileDescription>
+    <copyright>Copyright 2008 by Heaton Research, Inc.</copyright>
+    <productVersion>1.0.0.0</productVersion>
+    <txtProductVersion>1.0</txtProductVersion>
+    <productName>Encog Workbench</productName>
+    <companyName>Heaton Research, Inc.</companyName>
+    <internalName>Encog Workbench</internalName>
+    <originalFilename>EncogWorkbench.exe</originalFilename>
+  </versionInfo>
+</launch4jConfig>

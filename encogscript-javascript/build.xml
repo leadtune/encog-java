@@ -1,0 +1,58 @@
+<project name="encog-core" default="build" basedir=".">
+	<description>
+        Build the Encog Javascript plugin.
+    </description>
+	<!-- load the properties file -->
+	<property file="encog.properties"/>
+	<!-- set global properties for this build -->
+	<property name="path.src" location="${basedir}/src" />
+	<property name="path.build" location="${basedir}/build" />
+	<property name="path.dist" location="${basedir}/dist" />
+	<property name="path.lib" location="${basedir}/lib" />
+	<property name="path.stage" location="${basedir}/stage" />
+	<property name="path.jar" location="${basedir}/jar" />
+
+	<path id="classpath">
+		<fileset dir="${path.jar}" />
+	</path>
+
+	<target name="init">
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${path.build}" />
+	</target>
+
+	<target name="compile" depends="init" description="compile the source ">
+		<javac srcdir="${path.src}" source="1.5" target="1.5" destdir="${path.build}">
+			<classpath refid="classpath" />
+		</javac>
+		
+	</target>
+
+
+	<target name="build" depends="compile" description="generate the distribution">
+
+		<!-- Create the distribution directory -->
+		<mkdir dir="${path.dist}" />
+		<mkdir dir="${path.stage}" />
+		<mkdir dir="${path.lib}" />
+
+		<manifest file="MANIFEST.MF">
+			<attribute name="Built-By" value="${user.name}" />
+		</manifest>
+
+		<property name="jarfile" location="${path.lib}/encog-javascript-2.5.jar" />
+
+		<jar jarfile="${jarfile}" basedir="${path.build}" manifest="MANIFEST.MF" />
+
+	</target>
+
+
+	<target name="clean" description="clean up">
+		<!-- Delete the ${build} and ${dist} directory trees -->
+		<delete dir="${path.stage}" />
+		<delete dir="${path.jar}" />
+		<delete dir="${path.lib}" />
+		<delete dir="${path.build}" />
+		<delete dir="${path.dist}" />
+	</target>
+</project>
